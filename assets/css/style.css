@@ -61,4 +61,9 @@ button {
 }
 #userEmail{
   font-weight: 900;
+}
+
+.well {
+  height: 20px;
+}
 

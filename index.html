@@ -43,8 +43,14 @@
 					 <li><a href="#" id="btnLogOut" class="hide"><span class="glyphicon glyphicon-log-out" ></span> Log Out</a></li>
 				   </ul>
 				 </div>
-			</nav> <!-- end of navbar -->
+				 </nav> <!-- end of navbar -->	
 <div class="container">
+<div class = "row">
+		<div class = "col-md-11"></div>
+		<div class = "col-md-1">
+			<div class = "well">Test</div>
+		</div>	
+</div>		
 	<div class = "jumbotron text-center">
 		<div>
 			<h1>Title</h1>
@@ -76,28 +82,35 @@
 							<label class='radio-inline'><input type='radio' name='searchType' id = "restaurants">Restaurants</label>
 							
 							<div class="form-group headerStyle">
-							    <label for="zip">Zipcode:</label>
-							    	<input type="number" class="form-control" id="zip">
+							    <label for="zoom-to-area-text">Where are you starting from?</label>
+							    	<input type="text" class="form-control" id="zoom-to-area-text">
 							</div>
-							<div class="form-group headerStyle">
-							    <label for="city">City:</label>
-							    	<input type="text" class="form-control" id="city">
+							<div>
+							<button class="btn btn-default" type="button" id="locSearch">Submit</button>
 							</div>
-								<div class="form-group headerStyle">
-							    <label for="state">State:</label>
-							    	<input type="text" class="form-control" id="state">
+							<div>
+							<span class="text">Minutes away:</span>
+							<select id="max-duration">
+								    <option value = "10">10 mins</option>
+								    <option value = "15">15 mins</option>
+								    <option value = "30">30 mins</option>
+								    <option value = "60">60 mins</option>
+							
+							</select>
 							</div>
+
 							<div class="dropdown">
-							 <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" for="miles-input">
-							    Miles Away
+							 <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" for="minutes-input">
+							    Mode of Transport
 							    <span class="caret"></span></button>
-								  <ul class="dropdown-menu" id="miles-input">
-								    <li><a href = "#">5</a></li>
-								    <li><a href = "#">10</a></li>
-								    <li><a href = "#">25</a></li>
-								    <li><a href = "#">50</a></li>
+								  <ul class="dropdown-menu" id="max-duration">
+								    <li><option value = "DRIVING"></option>Drive</li>
+								    <li><option value = "WALKING"></option>Walk</li>
+								    <li><option value = "BICYCLING"></option>Bike</li>
+								    <li><option value = "TRANSIT"></option>Public Transit</li>
 								  </ul>
 							</div>
+
 						</div>
 					</div>
 				</div> <!-- end of panel -->
@@ -119,5 +132,10 @@
 		</div>
 	</div> <!-- end of row -->
 <!-- </div> -->	
+
+	<script src="assets/javascript/udacitymaps.js"></script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?libraries=places,drawing,geometry&key=AIzaSyDn6qPZ5ULJuRsaODxI6wtDQQPPT6AbPAo&v=3&callback=initMap">
+    </script>
 </body>
 </html>
