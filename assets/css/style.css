@@ -1,0 +1,64 @@
+
+
+body {
+  background-image: url("background.jpg");
+  background-repeat: no-repeat;
+    background-size: 1800px 1300px;
+}
+
+h1 {
+  font-family: 'Poller One', cursive;
+}
+
+h2 {
+  font-family: 'Poller One', cursive;
+}
+
+h3 {
+  font-family: 'Reem Kufi', sans-serif;
+  text-align: center;
+  font-weight: bold;
+}
+
+h4 {
+  font-family: 'Reem Kufi', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  
+}
+
+.jumbotron {
+  background-color: #FFF2CC;
+}
+
+.radio-inline {
+  margin-bottom: 8px;
+}
+
+.panel {
+  background-color: #FFF2CC;
+}
+
+label {
+  font-family: 'Reem Kufi', sans-serif;
+}
+
+button {
+  font-family: 'Reem Kufi', sans-serif;
+}
+
+.navbar {
+  font-family: 'Reem Kufi', sans-serif;
+}
+
+#txtEmail{
+  font-weight: 900;
+  color: #333
+}
+#txtPassword{
+  font-weight: 900;
+  color: #333
+}
+#userEmail{
+  font-weight: 900;
+

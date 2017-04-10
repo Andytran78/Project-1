@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clueless Chef</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- moment.js link -->
+<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+<!-- firebase link -->
+<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+
+<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+<link href="https://fonts.googleapis.com/css?family=Chivo|Fjalla+One|Poller+One|Reem+Kufi" rel="stylesheet">
+  
+<script type="text/javascript" src="assets/javascript/js.js"></script>
+</head>
+<body>
+		<nav class="navbar navbar-inverse">
+				 <div class="container-fluid">
+				   <div class="navbar-header">
+				     <a class="navbar-brand" href="#">WebSiteName</a>
+				   </div>
+				   <ul class="nav navbar-nav">
+				     <li class="active"><a href="#">Home</a></li>
+				     <li><a href="#">Page 1</a></li>
+				     <li><a href="#">Page 2</a></li>
+				   </ul>
+				   <ul class="nav navbar-nav navbar-right">
+					 <li><a href="indexSignUpPage.html" id = "signUp"><span class="glyphicon glyphicon-user"></span > Sign Up</a></li>
+				     <li><a href="#" id="btnLogin"> <span class= " glyphicon glyphicon-log-in"></span> Login </a></li>
+				     <li> <a href ="#" id="userEmail" class="hide"></a></li>
+				     <li><a href="#"><input type="email" placeholder="email" id="txtEmail"></a></li>
+					 <li><a href="#"><input type="password" placeholder="password" id="txtPassword"></a></li>
+					 <li><a href="#" id="btnLogOut" class="hide"><span class="glyphicon glyphicon-log-out" ></span> Log Out</a></li>
+				   </ul>
+				 </div>
+			</nav> <!-- end of navbar -->
+<div class="container">
+	<div class = "jumbotron text-center">
+		<div>
+			<h1>Title</h1>
+			<h2>Some Text</h2>
+			<h3>Sample Words</h3>
+		</div>
+	</div> <!-- end of jumbrotron -->
+	<div class = "row">
+		<div class = "col-md-6">
+				<div class="panel panel-default">
+				<h3>Add Your Random Items</h3> 
+					<form>	
+						<input type="text" placeholder="add an ingredient" id = "newIngredientTxt" size="34">
+						<button id = "addIngredient" type ="submit" value="submit">+</button>
+					</form>	
+
+				<div id = "ingredientList"></div>
+				<div><p> Click here to search for Savory Recipes <button>Search</button></p></div>
+						
+				</div> <!-- end of panel -->
+		</div>
+		<div class = "col-md-6">
+				<div class="panel panel-default">
+						<h3>Map of not foodlion - KO</h3>
+						<div class="panel-body">
+							
+							<h4>Where to?</h4>
+							<label class='radio-inline'><input type='radio' name='searchType' id = "grocery">Grocery Stores</label>
+							<label class='radio-inline'><input type='radio' name='searchType' id = "restaurants">Restaurants</label>
+							
+							<div class="form-group headerStyle">
+							    <label for="zip">Zipcode:</label>
+							    	<input type="number" class="form-control" id="zip">
+							</div>
+							<div class="form-group headerStyle">
+							    <label for="city">City:</label>
+							    	<input type="text" class="form-control" id="city">
+							</div>
+								<div class="form-group headerStyle">
+							    <label for="state">State:</label>
+							    	<input type="text" class="form-control" id="state">
+							</div>
+							<div class="dropdown">
+							 <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" for="miles-input">
+							    Miles Away
+							    <span class="caret"></span></button>
+								  <ul class="dropdown-menu" id="miles-input">
+								    <li><a href = "#">5</a></li>
+								    <li><a href = "#">10</a></li>
+								    <li><a href = "#">25</a></li>
+								    <li><a href = "#">50</a></li>
+								  </ul>
+							</div>
+						</div>
+					</div>
+				</div> <!-- end of panel -->
+		</div><!-- end of row -->
+						<h3>Map of not foodloin - KO</h3>
+				</div> <!-- end of panel -->
+	<!-- 	</div>
+	</div> --> <!-- end of row -->
+	<div class ="row">
+		<div class = "col-md-6">
+				<div class="panel panel-default">
+					<h3>search of the recipes api - AT</h3>
+				</div> <!-- end of panel -->
+		</div>
+		<div class = "col-md-6">						
+			<div class="panel panel-default">
+				<h3>Neighborhood Resturants - JS</h3>		
+			</div> <!-- end of panel -->
+		</div>
+	</div> <!-- end of row -->
+<!-- </div> -->	
+</body>
+</html>
