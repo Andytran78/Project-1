@@ -101,5 +101,7 @@ function signUpEmail(){
   });
 }
 
-signUpEmail();
-});
+
+
+
+  
