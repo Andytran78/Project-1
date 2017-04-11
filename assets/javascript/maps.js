@@ -1,11 +1,10 @@
 var map;
 var markers = [];
-var placeMarkers = [];
 
 function initMap() {
     map = new google.maps.Map(document.getElementById("map"), {
         center: {lat: 40.7413549, lng: -73.9980244},
-        zoom: 13,
+        zoom: 17,
         mapTypeControl: false
     });
 
@@ -28,7 +27,7 @@ function zoomToArea() {
   var geocoder = new google.maps.Geocoder();
   var address = document.getElementById("zoom-to-area-text").value;
   if (address === "") {
-    window.alert("You must enter an area, or address.")
+    console.log("You must enter an area, or address.")
   } else {
     geocoder.geocode(
       { address: address,
@@ -36,34 +35,34 @@ function zoomToArea() {
       }, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
           map.setCenter(results[0].geometry.location);
-          map.setZoom(15);
+          map.setZoom(17);
           $("#address-field").text(results[0].formatted_address)
         } else {
-          window.alert("We cold not find that location.  Try entering a more specific place!");
+         console.log("We cold not find that location.  Try entering a more specific place!");
         }
       });
   }
 }
 
 function hideMarkers(markers) {
-  for (var i = 0; i < placeMarkers.length; i++) {
-    placeMarkers[i].setMap(null);
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(null);
   }
 }
 
 function searchBoxPlaces(searchBox) {
   var bounds = map.getBounds();
-  hideMarkers(placeMarkers);
+  hideMarkers(markers);
   var places = searchBox.getPlaces();
   createMarkersForPlaces(places);
   if (places.length === 0) {
-    window.alert("We did not find any places matching that search!");
+   console.log("We did not find any places matching that search!");
   }
 }
 
 function grocerySearch() {
   var bounds = map.getBounds();
-  hideMarkers(placeMarkers);
+  hideMarkers(markers);
   var placesService = new google.maps.places.PlacesService(map);
   placesService.textSearch({
     query: "grocery store",
@@ -77,7 +76,7 @@ function grocerySearch() {
 
 function restaurantSearch() {
   var bounds = map.getBounds();
-  hideMarkers(placeMarkers);
+  hideMarkers(markers);
   var placesService = new google.maps.places.PlacesService(map);
   placesService.textSearch({
     query: "restaurant",
@@ -90,8 +89,9 @@ function restaurantSearch() {
 }
 
 function createMarkersForPlaces(places) {
+    console.log(markers);
     var bounds = new google.maps.LatLngBounds();
-    for (var i = 0; i < places.length; i++) {
+    for (var i = 0; i < 10; i++) {
       var place = places[i];
       var icon = {
         url: place.icon,
@@ -116,7 +116,7 @@ function createMarkersForPlaces(places) {
           }
       });
 
-      placeMarkers.push(marker);
+      markers.push(marker);
       if (place.geometry.viewport) {
         bounds.union(place.geometry.viewport);
       } else {
@@ -170,14 +170,14 @@ function getPlacesDetails(marker, infowindow) {
 
 function searchWithinTime() {
       var distanceMatrixService = new google.maps.DistanceMatrixService;
-      var address = document.getElementById("search-within-time-text").value;
+      var address = document.getElementById("zoom-to-area-text").value;
         if (address === "") {
-          window.alert("you must enter an address.");
+          console.log("you must enter an address.");
         } else {
           hideMarkers(markers);
           var origins = [];
-          for (var i = 0; i < placeMarkers.length; i++) {
-            origins[i] = placeMarkers[i].position;
+          for (var i = 0; i < 10; i++) {
+            origins[i] = markers[i].position;
           }
           var destination = address;
           var mode = document.getElementById("mode").value;
@@ -210,16 +210,16 @@ function displayMarkersWithinTime(response) {
             var duration = element.duration.value / 60;
             var durationText = element.duration.text;
             if (duration <= maxDuration) {
-              placeMarkers[i].setMap(map);
+              markers[i].setMap(map);
               atLeastOne = true;
               var infowindow = new google.maps.InfoWindow({
                 content: durationText + "away" + distanceText +
                 "<div><input type=\'button\' value=\'View Route\' onclick=" +
                 "\'displayDirections(&quot;" + origins[i] + "&quot;);\'></input></div>"
               });
-              infowindow.open(map, placeMarkers[i]);
-              placeMarkers[i].infowindow = infowindow;
-              google.maps.event.addListener(placeMarkers[i], "click", function() {
+              infowindow.open(map, markers[i]);
+              markers[i].infowindow = infowindow;
+              google.maps.event.addListener(markers[i], "click", function() {
                 this.infowindow.close();
               });
             }
@@ -229,10 +229,10 @@ function displayMarkersWithinTime(response) {
     }
 
 function displayDirections(origin) {
-      hideMarkers(placeMarkers);
+      hideMarkers(markers);
       var directionsService = new google.maps.DirectionsService;
       var destinationAddress =
-        document.getElementById("search-within-time-text").value;
+        document.getElementById("zoom-to-area-text").value;
       var mode = document.getElementById("mode").value;
       directionsService.route({
         origin: origin,
