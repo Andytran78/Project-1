@@ -1,5 +1,6 @@
 $( document ).ready(function(){
-var myArray = [];  
+var myArray = [];
+var map;
 		function ingredientsAdd(){
       $("#ingredientList").empty();
 			for( i = 0; i < myArray.length; i++){
@@ -20,7 +21,7 @@ var myArray = [];
 			    ingredientsAdd();
 
 				});
-	ingredientsAdd();	
+	ingredientsAdd();
 
 function signUpEmail(){
 
@@ -52,7 +53,7 @@ function signUpEmail(){
      email = $("#txtEmail").val().trim();
      pass = $("#txtPassword").val().trim();
     var auth = firebase.auth();
-    
+
     console.log(email);
     console.log(pass);
     var promise = auth.signInWithEmailAndPassword(email,pass);
@@ -78,7 +79,7 @@ function signUpEmail(){
     promise.catch(e => $("#dupMessage").html(e.message));
   });
 
-  
+
   $("#btnLogOut").on("click",e =>{
       firebase.auth().signOut();
   });
@@ -100,8 +101,6 @@ function signUpEmail(){
       }
   });
 }
+});
 
 
-
-
-  
