@@ -17,6 +17,9 @@ function initMap() {
     document.getElementById("zoom-to-area").addEventListener("click", function() {
         zoomToArea();
     });
+    document.getElementById("search-within-time").addEventListener("click", function() {
+        searchWithinTime();
+    });
     document.getElementById("grocery").addEventListener("click", grocerySearch);
     document.getElementById("restaurant").addEventListener("click", restaurantSearch);
 }
@@ -43,8 +46,8 @@ function zoomToArea() {
 }
 
 function hideMarkers(markers) {
-  for (var i = 0; i < markers.length; i++) {
-    markers[i].setMap(null);
+  for (var i = 0; i < placeMarkers.length; i++) {
+    placeMarkers[i].setMap(null);
   }
 }
 
@@ -164,3 +167,89 @@ function getPlacesDetails(marker, infowindow) {
         }
       });
 }
+
+function searchWithinTime() {
+      var distanceMatrixService = new google.maps.DistanceMatrixService;
+      var address = document.getElementById("search-within-time-text").value;
+        if (address === "") {
+          window.alert("you must enter an address.");
+        } else {
+          hideMarkers(markers);
+          var origins = [];
+          for (var i = 0; i < placeMarkers.length; i++) {
+            origins[i] = placeMarkers[i].position;
+          }
+          var destination = address;
+          var mode = document.getElementById("mode").value;
+          distanceMatrixService.getDistanceMatrix({
+            origins: origins,
+            destinations: [destination],
+            travelMode: google.maps.TravelMode[mode],
+            unitSystem: google.maps.UnitSystem.IMPERIAL,
+          }, function(response, status) {
+            if (status !== google.maps.DistanceMatrixStatus.OK) {
+              window.alert("Error was: " + status);
+            } else {
+              displayMarkersWithinTime(response);
+              }
+          });
+        }
+}
+
+function displayMarkersWithinTime(response) {
+      var maxDuration = document.getElementById("max-duration").value;
+      var origins = response.originAddresses;
+      var destinations = response.destinationAddresses;
+      var atLeastOne = false;
+      for (var i = 0; i < origins.length; i++) {
+        var results = response.rows[i].elements;
+        for (var j = 0; j < results.length; j++) {
+          var element = results[j];
+          if (element.status === "OK") {
+            var distanceText = element.distance.text;
+            var duration = element.duration.value / 60;
+            var durationText = element.duration.text;
+            if (duration <= maxDuration) {
+              placeMarkers[i].setMap(map);
+              atLeastOne = true;
+              var infowindow = new google.maps.InfoWindow({
+                content: durationText + "away" + distanceText +
+                "<div><input type=\'button\' value=\'View Route\' onclick=" +
+                "\'displayDirections(&quot;" + origins[i] + "&quot;);\'></input></div>"
+              });
+              infowindow.open(map, placeMarkers[i]);
+              placeMarkers[i].infowindow = infowindow;
+              google.maps.event.addListener(placeMarkers[i], "click", function() {
+                this.infowindow.close();
+              });
+            }
+          }
+        }
+      }
+    }
+
+function displayDirections(origin) {
+      hideMarkers(placeMarkers);
+      var directionsService = new google.maps.DirectionsService;
+      var destinationAddress =
+        document.getElementById("search-within-time-text").value;
+      var mode = document.getElementById("mode").value;
+      directionsService.route({
+        origin: origin,
+        destination: destinationAddress,
+        travelMode: google.maps.TravelMode[mode]
+      }, function(response, status) {
+          if (status === google.maps.DirectionsStatus.OK) {
+            var directionsDisplay = new google.maps.DirectionsRenderer({
+              map: map,
+              directions: response,
+              draggable: true,
+              polylineOptions: {
+                strokeColor: "green"
+              }
+            });
+          } else {
+            window.alert("Direction request failed due to " + status);
+          }
+      });
+    }
