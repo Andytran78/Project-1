@@ -24,16 +24,15 @@ h4 {
   font-family: 'Reem Kufi', sans-serif;
   font-size: 14px;
   font-weight: bold;
-  
+
 }
 
 .jumbotron {
   background-color: #FFF2CC;
 }
 
-.text {
-  margin: 8px;
-  font-family: 'Reem Kufi', sans-serif;
+.radio-inline {
+  margin-bottom: 8px;
 }
 
 .panel {
@@ -44,19 +43,8 @@ label {
   font-family: 'Reem Kufi', sans-serif;
 }
 
-option {
-  font-family: 'Reem Kufi', sans-serif;
-   margin: 8px;
-}
-
-input {
-  font-family: 'Reem Kufi', sans-serif;
-  margin: 8px;
-}
-
 button {
   font-family: 'Reem Kufi', sans-serif;
-  margin-bottom: 8px;
 }
 
 .navbar {
@@ -79,3 +67,6 @@ button {
   height: 20px;
 }
 
+#map {
+  height: 370px;
+}
