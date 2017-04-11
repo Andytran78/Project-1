@@ -1,0 +1,328 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"form",
+				"formatted_phone_number"
+			],
+			[
+				"favro",
+				"favoriteFoods"
+			],
+			[
+				"l",
+				"li\tTag"
+			],
+			[
+				"u",
+				"ul\tTag"
+			],
+			[
+				"fon",
+				"font-size"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 360.0,
+		"last_filter": "Package Control Install",
+		"selected_items":
+		[
+			[
+				"Package Control Install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 432.0
+	},
+	"console":
+	{
+		"height": 153.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/jsand/Documents/Coding Bootcamp/Project-1/assets/javascript/maps.js",
+		"/C/Users/jsand/Documents/Coding Bootcamp/Project-1/assets/css/style.css",
+		"/C/Users/jsand/Documents/Coding Bootcamp/Project-1/index.html",
+		"/C/Users/jsand/Documents/Coding Bootcamp/udacityGoogleMaps/index.html",
+		"/C/Users/jsand/Documents/Coding Bootcamp/udacityGoogleMaps/assets/javascript/udacitymaps.js",
+		"/C/Users/jsand/Documents/Coding Bootcamp/Project-1/assets/javascript/js.js",
+		"/C/Users/jsand/Desktop/Saturday/index.html",
+		"/C/Users/jsand/Desktop/Saturday/javascript.js",
+		"/C/Users/jsand/Documents/Coding Bootcamp/Past Homework Assignments/GifTastic/assets/javascript/gif.js",
+		"/C/Users/jsand/Documents/Coding Bootcamp/Past Homework Assignments/GifTastic/index.html",
+		"/C/Users/jsand/Documents/Coding Bootcamp/CluelessChef/index.html",
+		"/C/Users/jsand/Documents/Coding Bootcamp/CluelessChef/assets/javascript/js.js",
+		"/C/Users/jsand/Documents/Coding Bootcamp/udacityGoogleMaps/assets/css/style.css",
+		"/C/Users/jsand/Documents/Coding Bootcamp/trainSchedule/assets/css/style.css",
+		"/C/Users/jsand/Documents/Coding Bootcamp/trainSchedule/index.html",
+		"/C/Users/jsand/Documents/Coding Bootcamp/trainSchedule/assets/javascript/train.js",
+		"/C/Users/jsand/Desktop/trainexample.html",
+		"/C/Users/jsand/Desktop/test two.html",
+		"/C/Users/jsand/Documents/Coding Bootcamp/RPS-Multiplayer/index.html",
+		"/C/Users/jsand/Documents/Coding Bootcamp/RPS-Multiplayer/assets/javascript/game.js",
+		"/C/Users/jsand/Documents/Coding Bootcamp/friendlychat/web-start/scripts/main.js",
+		"/C/Users/jsand/Documents/Coding Bootcamp/friendlychat/web-start/index.html",
+		"/C/Users/jsand/Downloads/recent-user-with-all-users.html",
+		"/C/Users/jsand/Desktop/Saturday/style.css",
+		"/C/Users/jsand/Downloads/test.html",
+		"/C/Users/jsand/Downloads/train-example.html",
+		"/C/Users/jsand/Downloads/momentjs-activity-solved.html",
+		"/C/Users/jsand/Downloads/02-recent-user-with-push.html",
+		"/C/Users/jsand/Downloads/momentjs-activity.html",
+		"/C/Users/jsand/Desktop/test.js",
+		"/C/Users/jsand/Desktop/work.html",
+		"/C/Users/jsand/Downloads/3-student-do-downbutton.html",
+		"/C/Users/jsand/Downloads/2-instructor-do-clickbutton-nocomments.html",
+		"/C/Users/jsand/Desktop/New folder/logic.js",
+		"/C/Users/jsand/Desktop/New folder/8-codersbay-view.html",
+		"/C/Users/jsand/Downloads/logicOption2.js",
+		"/C/Users/jsand/Downloads/5-recentuser.html",
+		"/C/Users/jsand/Desktop/New folder/6-codersbay.html",
+		"/C/Users/jsand/Downloads/logic (1).js",
+		"/C/Users/jsand/Downloads/logic.js",
+		"/C/Users/jsand/Downloads/6-codersbay.html",
+		"/C/Users/jsand/Documents/Coding Bootcamp/GifTastic/assets/css/style.css",
+		"/C/Users/jsand/Documents/Coding Bootcamp/GifTastic/assets/javascript/gif.js",
+		"/C/Users/jsand/Documents/Coding Bootcamp/GifTastic/index.html",
+		"/C/Users/jsand/Desktop/test.html",
+		"/C/Users/jsand/Desktop/Recovered Gif/GifTastic/index.html",
+		"/C/Users/jsand/Downloads/1-student-do-todolist-solution.html",
+		"/C/Users/jsand/Downloads/4-student-do-signin-localstorage-solution.html",
+		"/C/Users/jsand/Downloads/2-student-do-signin-no-persistence.html",
+		"/C/Users/jsand/Downloads/1-student-do-todolist.html",
+		"/C/Users/jsand/Downloads/6-instructor-do-cookies-intro.html",
+		"/C/Users/jsand/Downloads/7-student-do-signin-cookies-solution.html",
+		"/C/Users/jsand/Downloads/3-instructor-do-localstorage.html",
+		"/C/Users/jsand/Desktop/times/style.css",
+		"/C/Users/jsand/Desktop/times/app.js",
+		"/C/Users/jsand/Downloads/newyorktimes.html",
+		"/C/Users/jsand/Downloads/2-button-triggered-ajax-students.html",
+		"/C/Users/jsand/Documents/Coding Bootcamp/TriviaGame/assets/javascript/app.js",
+		"/C/Users/jsand/Downloads/01-cat-button-students.html",
+		"/C/Users/jsand/Documents/Coding Bootcamp/Bootstrap-Portfolio/contact.html",
+		"/C/Users/jsand/Documents/Coding Bootcamp/Bootstrap-Portfolio/assets/css/style.css",
+		"/C/Users/jsand/Documents/Coding Bootcamp/Bootstrap-Portfolio/portfolio.html",
+		"/C/Users/jsand/Documents/Coding Bootcamp/Bootstrap-Portfolio/index.html",
+		"/C/Users/jsand/Documents/Coding Bootcamp/TriviaGame/index.html",
+		"/C/Users/jsand/Documents/Coding Bootcamp/TriviaGame/assets/css/style.css",
+		"/C/Users/jsand/Downloads/1-customer-object.html",
+		"/C/Users/jsand/Downloads/-.js",
+		"/C/Users/jsand/Downloads/3-ajax-to-html.html",
+		"/C/Users/jsand/Desktop/sample.html",
+		"/C/Users/jsand/Desktop/bubble_sort/sortArray.js",
+		"/C/Users/jsand/Desktop/bubble_sort/index.html",
+		"/C/Users/jsand/Desktop/slideshow_skeleton/slideshow.html",
+		"/C/Users/jsand/Desktop/slideshow_skeleton/slideshow.js",
+		"/C/Users/jsand/Downloads/interval.html",
+		"/C/Users/jsand/Desktop/stopwatch_skeleton/stopwatch.js",
+		"/C/Users/jsand/Desktop/stopwatch_skeleton/stopwatch.html",
+		"/C/Users/jsand/Downloads/simple-timer.html",
+		"/C/Users/jsand/Downloads/coin-flip.html",
+		"/C/Users/jsand/Downloads/this.html",
+		"/C/Users/jsand/Documents/Coding Bootcamp/week-4-game/assets/css/style.css",
+		"/C/Users/jsand/Documents/Coding Bootcamp/week-4-game/index.html",
+		"/C/Users/jsand/Documents/Coding Bootcamp/week-4-game/assets/javascript/game.js",
+		"/C/Users/jsand/AppData/Roaming/Sublime Text 3/Packages/Package Control/Package Control.sublime-settings",
+		"/C/Users/jsand/AppData/Roaming/Sublime Text 3/Packages/User/Package Control.sublime-settings",
+		"/C/Users/jsand/Downloads/jquery-calculator-starter.html",
+		"/C/Users/jsand/Downloads/scope-quiz-unsolved.html",
+		"/C/Users/jsand/Downloads/this-unsolved.html",
+		"/C/Users/jsand/Desktop/Unsolved/captain-planet-game.html",
+		"/C/Users/jsand/Desktop/3-9.html",
+		"/C/Users/jsand/Desktop/fridge_starter/fridge.html",
+		"/C/Users/jsand/Documents/Coding Bootcamp/Psychic-Game/assets/javascript/game.js",
+		"/C/Users/jsand/Documents/Coding Bootcamp/Psychic-Game/index.html",
+		"/C/Users/jsand/Documents/Coding Bootcamp/Responsive-Portfolio/index.html",
+		"/C/Users/jsand/Documents/Coding Bootcamp/Hangman-Game/index.html",
+		"/C/Users/jsand/Documents/Coding Bootcamp/JavaScript Notes.html",
+		"/C/Users/jsand/Downloads/onclick.html",
+		"/C/Users/jsand/Downloads/sandwich-click-unsolved.html",
+		"/C/Users/jsand/Downloads/3.html",
+		"/C/Users/jsand/Downloads/jquery-drinklist-unsolved.html",
+		"/C/Users/jsand/Downloads/drinklist-unsolved.html",
+		"/C/Users/jsand/Downloads/car-object-unsolved.html",
+		"/C/Users/jsand/Downloads/rps-8.html",
+		"/C/Users/jsand/Downloads/car-object-solved.html",
+		"/C/Users/jsand/Downloads/array-setting-unsolved.html",
+		"/C/Users/jsand/Downloads/array-logs-unsolved.html",
+		"/C/Users/jsand/Downloads/my-first-functions-solved.html",
+		"/C/Users/jsand/Downloads/superhero-logging-solved-with-functions (1).html",
+		"/C/Users/jsand/Downloads/my-first-functions-unsolved (1).html",
+		"/C/Users/jsand/Downloads/loop-tv-unsolved (1).html",
+		"/C/Users/jsand/Downloads/conditional-demo.html",
+		"/C/Users/jsand/Downloads/pizza-variables-2.html",
+		"/C/Users/jsand/Downloads/pizza-variables.html",
+		"/C/Users/jsand/Downloads/js-dissect-unsolved.html",
+		"/C/Users/jsand/Documents/Coding Bootcamp/Responsive-Portfolio/assets/css/style.css",
+		"/C/Users/jsand/Documents/Coding Bootcamp/Responsive-Portfolio/portfolio.html",
+		"/C/Users/jsand/Documents/Coding Bootcamp/Responsive-Portfolio/test.html",
+		"/C/Users/jsand/Downloads/prompt-sushi.html",
+		"/C/Users/jsand/Downloads/prompt-demo.html",
+		"/C/Users/jsand/Downloads/superhero-logging-solved-with-functions.html",
+		"/C/Users/jsand/Downloads/my-first-functions-unsolved.html",
+		"/C/Users/jsand/Downloads/loop-tv-unsolved.html",
+		"/C/Users/jsand/Documents/Coding Bootcamp/Responsive-Portfolio/contact.html",
+		"/C/Users/jsand/Desktop/typograph/html-template.html",
+		"/C/Users/jsand/Documents/Coding Bootcamp/PREWORK_JRS/Module-8/fanpage.html",
+		"/C/Users/jsand/Desktop/wireframe.html",
+		"/C/Users/jsand/Desktop/sat.html",
+		"/C/Users/jsand/Desktop/typograph/style.css",
+		"/C/Users/jsand/Documents/Coding Bootcamp/Basic-Portfolio/index.html"
+	],
+	"find":
+	{
+		"height": 28.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"hideMarkers",
+			"hideListings",
+			"}\n",
+			"largeInfowindow",
+			"infowindow",
+			"format",
+			");\n",
+			"format",
+			"else",
+			"tab",
+			"both"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "index.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

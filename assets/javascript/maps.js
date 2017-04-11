@@ -7,6 +7,8 @@ function initMap() {
         mapTypeControl: false
     });
 
+    var zoomAutocomplete = new google.maps.places.Autocomplete(
+        document.getElementById("zoom-to-area-text"));
     document.getElementById("zoom-to-area").addEventListener("click", function() {
         zoomToArea();
     });
