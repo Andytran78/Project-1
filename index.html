@@ -20,8 +20,7 @@
 <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 <link href="https://fonts.googleapis.com/css?family=Chivo|Fjalla+One|Poller+One|Reem+Kufi" rel="stylesheet">
-  
-<script type="text/javascript" src="assets/javascript/js.js"></script>
+
 </head>
 <body>
 		<nav class="navbar navbar-inverse">
@@ -43,8 +42,14 @@
 					 <li><a href="#" id="btnLogOut" class="hide"><span class="glyphicon glyphicon-log-out" ></span> Log Out</a></li>
 				   </ul>
 				 </div>
-			</nav> <!-- end of navbar -->
+				 </nav> <!-- end of navbar -->
 <div class="container">
+<div class = "row">
+		<div class = "col-md-11"></div>
+		<div class = "col-md-1">
+			<div class = "well">Test</div>
+		</div>
+</div>
 	<div class = "jumbotron text-center">
 		<div>
 			<h1>Title</h1>
@@ -55,6 +60,7 @@
 	<div class = "row">
 		<div class = "col-md-6">
 				<div class="panel panel-default">
+<<<<<<< HEAD
 				<h3>Add Your Random Items</h3> 
 					<div class="form-control headerStyle">
 						<form>	
@@ -62,46 +68,54 @@
 							<button id = "addIngredient" type ="submit" value="submit">+</button>
 						</form>	
 					</div>
+=======
+				<h3>Add Your Random Items</h3>
+					<form>
+						<input type="text" placeholder="add an ingredient" id = "newIngredientTxt" size="34">
+						<button id = "addIngredient" type ="submit" value="submit">+</button>
+					</form>
+
+>>>>>>> ab4e7f2e52ed94e38803092b973baf5033fa1c0e
 				<div id = "ingredientList"></div>
 				<div><p> Click here to search for Savory Recipes <button>Search</button></p></div>
-						
+
 				</div> <!-- end of panel -->
 		</div>
 		<div class = "col-md-6">
 				<div class="panel panel-default">
 						<h3>Map of not foodlion - KO</h3>
 						<div class="panel-body">
-							
-							<h4>Where to?</h4>
-							<label class='radio-inline'><input type='radio' name='searchType' id = "grocery">Grocery Stores</label>
-							<label class='radio-inline'><input type='radio' name='searchType' id = "restaurants">Restaurants</label>
-							
 							<div class="form-group headerStyle">
-							    <label for="zip">Zipcode:</label>
-							    	<input type="number" class="form-control" id="zip">
+							    <label for="zoom-to-area-text">Where are you starting from?</label>
+							    	<input type="text" class="form-control" id="zoom-to-area-text">
+								<button class="btn btn-default" type="button" id="zoom-to-area">Submit</button>
 							</div>
 							<div class="form-group headerStyle">
-							    <label for="city">City:</label>
-							    	<input type="text" class="form-control" id="city">
+								<span class="text">How far?</span>
+								<select id="max-duration">
+									<option value = "10">10 mins</option>
+									<option value = "15">15 mins</option>
+									<option value = "30">30 mins</option>
+									<option value = "60">60 mins</option>
+								</select>
+								<span class="text">How are you travelling?</span>
+								<select id="mode">
+									<option value = "DRIVING">Drive</option>
+									<option value = "WALKING">Walk</option>
+									<option value = "BICYCLING">Bike</option>
+									<option value = "TRANSIT">Public Transit</option>
+								</select>
+								<span class="text">From</span>
+							    	<input type="text" class="form-control" id="search-within-time-text" placeholder="Your Location">
+								<input class="btn btn-default" type="button" id="search-within-time" value="Go!">
 							</div>
-								<div class="form-group headerStyle">
-							    <label for="state">State:</label>
-							    	<input type="text" class="form-control" id="state">
-							</div>
-							<div class="dropdown">
-							 <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" for="miles-input">
-							    Miles Away
-							    <span class="caret"></span></button>
-								  <ul class="dropdown-menu" id="miles-input">
-								    <li><a href = "#">5</a></li>
-								    <li><a href = "#">10</a></li>
-								    <li><a href = "#">25</a></li>
-								    <li><a href = "#">50</a></li>
-								  </ul>
+							<div id="buttonSearch">
+								<button class="btn btn-default" type="button" id="grocery">Find Grocery Stores</button>
+								<button class="btn btn-default" type="button" id="restaurant">Find Restaurants</button>
 							</div>
 						</div>
-					</div>
-				</div> <!-- end of panel -->
+				</div><!-- end of panel -->
+			</div>
 		</div><!-- end of row -->
 						<h3>Map of not foodloin - KO</h3>
 				</div> <!-- end of panel -->
@@ -113,12 +127,18 @@
 					<h3>search of the recipes api - AT</h3>
 				</div> <!-- end of panel -->
 		</div>
-		<div class = "col-md-6">						
+		<div class = "col-md-6">
 			<div class="panel panel-default">
-				<h3>Neighborhood Resturants - JS</h3>		
+				<h3>Neighborhood Resturants - JS</h3>
+				<div id="map"></div>
 			</div> <!-- end of panel -->
 		</div>
 	</div> <!-- end of row -->
-<!-- </div> -->	
+<!-- </div> -->
+	<script src="assets/javascript/maps.js"></script>
+	<script type="text/javascript" src="assets/javascript/js.js"></script>
+     <script async defer
+    src="https://maps.googleapis.com/maps/api/js?libraries=places,drawing,geometry&key=AIzaSyDn6qPZ5ULJuRsaODxI6wtDQQPPT6AbPAo&v=3&callback=initMap">
+    </script>
 </body>
 </html>

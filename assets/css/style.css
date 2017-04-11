@@ -24,7 +24,7 @@ h4 {
   font-family: 'Reem Kufi', sans-serif;
   font-size: 14px;
   font-weight: bold;
-  
+
 }
 
 .jumbotron {
@@ -61,4 +61,12 @@ button {
 }
 #userEmail{
   font-weight: 900;
+}
 
+.well {
+  height: 20px;
+}
+
+#map {
+  height: 500px;
+}
