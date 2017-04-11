@@ -12,12 +12,13 @@ function initMap() {
     var zoomAutocomplete = new google.maps.places.Autocomplete(
         document.getElementById("zoom-to-area-text"));
     var searchBox = new google.maps.places.SearchBox(
-      document.getElementById("grocery"));
+      document.getElementById("buttonSearch"));
     searchBox.setBounds(map.getBounds());
     document.getElementById("zoom-to-area").addEventListener("click", function() {
         zoomToArea();
     });
     document.getElementById("grocery").addEventListener("click", grocerySearch);
+    document.getElementById("restaurant").addEventListener("click", restaurantSearch);
 }
 
 function zoomToArea() {
@@ -71,6 +72,20 @@ function grocerySearch() {
   });
 }
 
+function restaurantSearch() {
+  var bounds = map.getBounds();
+  hideMarkers(placeMarkers);
+  var placesService = new google.maps.places.PlacesService(map);
+  placesService.textSearch({
+    query: "restaurant",
+    bounds: bounds
+  }, function(results, status) {
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+      createMarkersForPlaces(results);
+    }
+  });
+}
+
 function createMarkersForPlaces(places) {
     var bounds = new google.maps.LatLngBounds();
     for (var i = 0; i < places.length; i++) {
@@ -107,3 +122,45 @@ function createMarkersForPlaces(places) {
     }
     map.fitBounds(bounds);
   }
+
+function getPlacesDetails(marker, infowindow) {
+      var service = new google.maps.places.PlacesService(map);
+      service.getDetails({
+        placeId: marker.id
+      }, function (place, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          infowindow.marker = marker;
+          var innerHTML = "<div>";
+          if (place.name) {
+            innerHTML += "<strong>" + place.name + "</strong>";
+          }
+          if (place.formatted_address) {
+            innerHTML += "<br>" + place.formatted_address;
+          }
+          if (place.formatted_phone_number) {
+            innerHTML += "<br>" + place.formatted_phone_number;
+          }
+          if (place.opening_hours) {
+            innerHTML += "<br><br><strong>Hours:</strong><br>" +
+              place.opening_hours.weekday_text[0] + "<br>" +
+              place.opening_hours.weekday_text[1] + "<br>" +
+              place.opening_hours.weekday_text[2] + "<br>" +
+              place.opening_hours.weekday_text[3] + "<br>" +
+              place.opening_hours.weekday_text[4] + "<br>" +
+              place.opening_hours.weekday_text[5] + "<br>" +
+              place.opening_hours.weekday_text[6];
+          }
+          if (place.photos) {
+            innerHTML += '<br><br><img src="' + place.photos[1].getUrl(
+                {maxHeight: 100, maxWidth: 200}) + '">';
+          }
+          innerHTML += "</div>";
+          infowindow.setContent(innerHTML);
+          infowindow.open(map, marker);
+          infowindow.addListener("closeclick", function() {
+            infowindow.marker = null;
+          });
+
+        }
+      });
+}
