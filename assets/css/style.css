@@ -31,8 +31,9 @@ h4 {
   background-color: #FFF2CC;
 }
 
-.radio-inline {
-  margin-bottom: 8px;
+.text {
+  margin: 8px;
+  font-family: 'Reem Kufi', sans-serif;
 }
 
 .panel {
@@ -43,8 +44,19 @@ label {
   font-family: 'Reem Kufi', sans-serif;
 }
 
+option {
+  font-family: 'Reem Kufi', sans-serif;
+   margin: 8px;
+}
+
+input {
+  font-family: 'Reem Kufi', sans-serif;
+  margin: 8px;
+}
+
 button {
   font-family: 'Reem Kufi', sans-serif;
+  margin-bottom: 8px;
 }
 
 .navbar {
