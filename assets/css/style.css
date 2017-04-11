@@ -24,7 +24,7 @@ h4 {
   font-family: 'Reem Kufi', sans-serif;
   font-size: 14px;
   font-weight: bold;
-  
+
 }
 
 .jumbotron {
@@ -67,3 +67,6 @@ button {
   height: 20px;
 }
 
+#map {
+  height: 500px;
+}
