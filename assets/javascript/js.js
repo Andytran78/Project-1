@@ -1,6 +1,5 @@
 $( document ).ready(function(){
 var myArray = [];
-var map;
 		function ingredientsAdd(){
       $("#ingredientList").empty();
 			for( i = 0; i < myArray.length; i++){
@@ -102,5 +101,7 @@ function signUpEmail(){
   });
 }
 });
+
+
 
 
