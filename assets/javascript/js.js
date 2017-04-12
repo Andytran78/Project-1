@@ -6,9 +6,12 @@ var myArray = [];
 			for( i = 0; i < myArray.length; i++){
 				console.log(myArray[i]);
 				var a = $("<div>");
+        var glyph = $("<span class = 'glyphicon glyphicon-minus'>")
 				a.attr("date-name", myArray[i]);
+        a.attr("date-Index",i);
 				a.text(myArray[i]);
 				a.addClass("meals");
+        $("#ingredientList").append(glyph);
 				$("#ingredientList").append(a);
 
 			}
@@ -23,6 +26,33 @@ var myArray = [];
 				});
 	ingredientsAdd();
 
+function removeIngredient(){
+
+  //remove from Array
+  console.log(this);
+  var getIndex = $(this).attr("data-index");
+  var getName = $(this).attr("data-name");
+
+  myArray.splice(getIndex, 1);
+  console.log(myArray);
+
+  //remove from DOM
+  $("#ingredientList").empty();
+      for( i = 0; i < myArray.length; i++){
+        console.log(myArray[i]);
+        var a = $("<div>");
+        a.attr("date-name", myArray[i]);
+        a.attr("date-Index",i);
+        a.text(" - "+ myArray[i]);
+        a.addClass("meals");
+        $("#ingredientList").append(a);
+
+
+
+  };
+};
+
+$(document).on("click", ".meals", removeIngredient);
 
 function signUpEmail(){
 
