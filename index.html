@@ -62,15 +62,23 @@
 				<div class="panel panel-default">
 
 				<h3>Add Your Random Items</h3>
+				<div class="panel-body">
 					<form>
-						<input type="text" placeholder="add an ingredient" id = "newIngredientTxt" size="34">
-						<button id = "addIngredient" type ="submit" value="submit">+</button>
+						<input class="form-control" type="text" placeholder="add an ingredient" id = "newIngredientTxt" size="34">
 					</form>
+					<div>
+						<button class="btn btn-default" id = "addIngredient" type ="submit" value="submit"><span class = "glyphicon glyphicon-plus"></span> Add</button>
+					</div>
+					<div class="panel panel-default" id = "ingredientPanel">
+						<div class="panel-body" >
+							<div id = "ingredientList"></div>
+						</div>
+				</div>
 
 				<div id = "ingredientList"></div>
-				<div><p> Click here to search for Savory Recipes <button>Search</button></p></div>
-
-				</div> <!-- end of panel -->
+				<div><p> Click here to search for Savory Recipes <button class="btn btn-default"><span class = "glyphicon glyphicon-search"></span> Search</button></p></div>
+				</div>
+			</div> <!-- end of panel -->
 		</div>
 		<div class = "col-md-6">
 				<div class="panel panel-default">
@@ -80,8 +88,21 @@
 							    <label for="zoom-to-area-text">Where are you starting from?</label>
 							    	<input type="text" class="form-control" id="zoom-to-area-text">
 								<button class="btn btn-default" type="button" id="zoom-to-area">Submit</button>
+              </div>
+							
+
+							<div>
+								<label>What are you looking for?</label>
+							</div>
+							<div id="buttonSearch">
+
+								<button class="btn btn-default" type="button" id="grocery">Find Grocery Stores</button>
+								<button class="btn btn-default" type="button" id="restaurant">Find Restaurants</button>
 							</div>
 							<div class="form-group headerStyle">
+								<div>
+								<label>What is your search area?</label>
+								</div>
 								<span class="text">How far?</span>
 								<select id="max-duration">
 									<option value = "10">10 mins</option>
@@ -96,22 +117,12 @@
 									<option value = "BICYCLING">Bike</option>
 									<option value = "TRANSIT">Public Transit</option>
 								</select>
-								<span class="text">From</span>
-							    	<input type="text" class="form-control" id="search-within-time-text" placeholder="Your Location">
-								<input class="btn btn-default" type="button" id="search-within-time" value="Go!">
-							</div>
-							<div id="buttonSearch">
-								<button class="btn btn-default" type="button" id="grocery">Find Grocery Stores</button>
-								<button class="btn btn-default" type="button" id="restaurant">Find Restaurants</button>
+								<button class="btn btn-default" type="button" id="search-within-time">Go!</button>
 							</div>
 						</div>
 				</div><!-- end of panel -->
 			</div>
 		</div><!-- end of row -->
-						<h3>Map of not foodloin - KO</h3>
-				</div> <!-- end of panel -->
-	<!-- 	</div>
-	</div> --> <!-- end of row -->
 	<div class ="row">
 		<div class = "col-md-6">
 				<div class="panel panel-default">

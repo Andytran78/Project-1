@@ -213,7 +213,7 @@ function displayMarkersWithinTime(response) {
               markers[i].setMap(map);
               atLeastOne = true;
               var infowindow = new google.maps.InfoWindow({
-                content: durationText + "away" + distanceText +
+                content: durationText + " away " + distanceText +
                 "<div><input type=\'button\' value=\'View Route\' onclick=" +
                 "\'displayDirections(&quot;" + origins[i] + "&quot;);\'></input></div>"
               });
