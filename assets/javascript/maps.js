@@ -50,19 +50,10 @@ function hideMarkers(markers) {
   }
 }
 
-function searchBoxPlaces(searchBox) {
-  var bounds = map.getBounds();
-  hideMarkers(markers);
-  var places = searchBox.getPlaces();
-  createMarkersForPlaces(places);
-  if (places.length === 0) {
-   console.log("We did not find any places matching that search!");
-  }
-}
-
 function grocerySearch() {
   var bounds = map.getBounds();
   hideMarkers(markers);
+  markers = [];
   var placesService = new google.maps.places.PlacesService(map);
   placesService.textSearch({
     query: "grocery store",
@@ -77,6 +68,7 @@ function grocerySearch() {
 function restaurantSearch() {
   var bounds = map.getBounds();
   hideMarkers(markers);
+  markers = [];
   var placesService = new google.maps.places.PlacesService(map);
   placesService.textSearch({
     query: "restaurant",
@@ -176,7 +168,7 @@ function searchWithinTime() {
         } else {
           hideMarkers(markers);
           var origins = [];
-          for (var i = 0; i < 10; i++) {
+          for (var i = 0; i < markers.length; i++) {
             origins[i] = markers[i].position;
           }
           var destination = address;
@@ -253,3 +245,7 @@ function displayDirections(origin) {
           }
       });
     }
+
+function clearMarkers() {
+  markers = [""]
+}
