@@ -145,52 +145,51 @@ $("#btnLogin").on("click", e=> {
 }
 signUpEmail();
 
-  $("#ingredientSearch").on("click", function() {
-            event.preventDefault();
-            var userInput = myArray.toString();
-            console.log(userInput);
-            addIngredients(userInput);
-            //return false;
-        });
+$("#ingredientSearch").on("click", function() {
+          event.preventDefault();
+          var userInput = myArray.toString();
+          console.log(userInput);
+          addIngredients(userInput);
+          //return false;
+      });
 
         //Search function button
-        function addIngredients(userInput) {
-                var p = $(this).data("name");
-                var queryURL = "https://api.edamam.com/search?q= " + userInput + " &app_id=694da05d&app_key=56d6789992fbe1f17a7c2ce8cbc3fc62"
-console.log(userInput);
-                //ajax call
-                $.ajax({ url: queryURL, method: "GET" })
-                    .done(function(response) {
-                        var hits = response.hits;
+function addIngredients(userInput) {
+    var p = $(this).data("name");
+    var queryURL = "https://api.edamam.com/search?q= " + userInput + " &app_id=694da05d&app_key=56d6789992fbe1f17a7c2ce8cbc3fc62"
+    //ajax call
+    $.ajax({ url: queryURL, method: "GET" })
+        .done(function(response) {
+            var hits = response.hits;
 
-                        for (var i = 0; i < hits.length; i++) {
-                            var recipe = hits[i].recipe;
-                            console.log(recipe);
-                            var recipesDiv = $('<div class="item">');
-                            var ingredientResults = recipe.ingredientLines;
-                            var ingredientParagraph = $("<p>").text(ingredientResults);
-                            var label = recipe.label;
-                            var header = $("<h1>").text(label)
-                            var image = $("<img>");
-                            image.attr("src", recipe.image);
-                            var url = $("<a>").html("<p>Click Here for Full Recipe!!!</p>");
-                            url.attr("href", recipe.url);
+            for (var i = 0; i < hits.length; i++) {
+                var recipe = hits[i].recipe;
+                console.log(recipe);
+                var recipesDiv = $('<div class="item">');
+                var ingredientResults = recipe.ingredientLines;
+                var ingredientParagraph = $("<p>").html("<strong>Ingredients:</strong><ul>" + ingredientResults + "</ul>");
+                var label = recipe.label;
+                var header = $("<h1>").text(label)
+                var image = $("<img>");
+                image.attr("src", recipe.image);
+                var url = $("<a>").html("<p><strong>Click Here for Full Recipe!!!</strong></p>");
+                url.attr("href", recipe.url);
 
-                            recipesDiv.append(ingredientParagraph);
-                            recipesDiv.append(image);
-                            recipesDiv.append(url);
+                recipesDiv.append(ingredientParagraph);
+                recipesDiv.append(image);
+                recipesDiv.append(url);
 
-                            recipesDiv.prepend(header);
-
+                recipesDiv.prepend(header);
 
 
 
-                            $("#recipeList").prepend(recipesDiv);
 
-                        }
+                $("#recipeList").prepend(recipesDiv);
 
-                });
-            // });
-    }
+            }
+
+    });
+    // });
+}
 });
 
