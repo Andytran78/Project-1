@@ -103,4 +103,7 @@ p {
 .item {
   margin: 5px;
   text-align: center;
+  
+.meals:hover {
+ color: red;
 }
