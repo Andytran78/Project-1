@@ -27,12 +27,14 @@ var myArray = [];
       $("#ingredientList").empty();
 			for( i = 0; i < myArray.length; i++){
 				console.log(myArray[i]);
+
         var a = $("<div>");
 				a.attr("data-name", myArray[i]);
         a.attr("data-Index",i);
 				a.text(myArray[i]);
 				a.addClass("meals");
         a.text(" - "+ myArray[i]);
+        
 				$("#ingredientList").append(a);
 
 			}
