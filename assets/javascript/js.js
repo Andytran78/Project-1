@@ -75,15 +75,18 @@ function removeIngredient(){
 
 $(document).on("click", ".meals", removeIngredient);
 
+
   
   var auth = firebase.auth();
 
 function signUpEmail(){ 
 
+
   function clearlogIn(){
     $("#txtEmail").val("");
     $("#txtPassword").val("");
   }
+
   
     function setLocalStorage(){
        $("#logInEmail").html();
@@ -188,7 +191,6 @@ signUpEmail();
       signUp();
   
 
-}); // document on ready
-
+}); // do
 
 
