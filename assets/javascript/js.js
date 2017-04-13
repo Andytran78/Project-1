@@ -13,14 +13,14 @@ var usr = "";
 
 $( document ).ready(function(){
 
-database.ref().on("value", function(snapshot) {
-  var sv = snapshot.val();
-  console.log(sv.usrName);
-  $("#profileName").append("<div>" + snapshot.val().usrName+ "<div>");
-},
-function(errorObject) {
-      console.log("Errors handled: " + errorObject.code);
-    });
+// database.ref(/firebaseUser).on("value", function(snapshot) {
+//   var sv = snapshot.val();
+//   console.log(sv.usrName);
+//   $("#profileName").append("<div>" + snapshot.val().usrName+ "<div>");
+// },
+// function(errorObject) {
+//       console.log("Errors handled: " + errorObject.code);
+//     });
 
 var myArray = [];
 		function ingredientsAdd(){
@@ -75,10 +75,6 @@ function removeIngredient(){
 
 $(document).on("click", ".meals", removeIngredient);
 
-
-
-  // Initialize Firebase
- 
   
   var auth = firebase.auth();
 
@@ -86,7 +82,7 @@ function signUpEmail(){
 
   function clearlogIn(){
     $("#txtEmail").val("");
-    $("#txtPassWord").val("");
+    $("#txtPassword").val("");
   }
   
     function setLocalStorage(){
@@ -97,54 +93,45 @@ function signUpEmail(){
          
     }
     
-    // to log in as a existng usr 
+    // to log in as a existng usr con
     $("#btnLogin").on("click", e=> {
          event.preventDefault();
          email = $("#txtEmail").val().trim();
          pass = $("#txtPassword").val().trim();
-          console.log(email);
          setLocalStorage();
-         
-
-        var auth = firebase.auth();
+         var auth = firebase.auth();
         clearlogIn();
-        var promise = auth.signInWithEmailAndPassword(email,pass);
 
+        var promise = auth.signInWithEmailAndPassword(email,pass);
+        
         promise.catch(e => console.log(e.message));
 
      });
      
       // to sign up for an account
-      $("#btnSignUp").on("click", e=>{
-        // TODO CHECK FOR REAL EMAIL
-        event.preventDefault();
-         email = $("#email").val().trim();
-         pass = $("#pwd").val().trim();
-         usrName = $("#usr").val().trim();
-         auth = firebase.auth();
-        console.log(email);
-        console.log(pass);
-        console.log(usr);
-        database.ref().push({
-          usrName: usrName,
-          email: email,
-        });
-        var promise = auth.createUserWithEmailAndPassword(email,pass);
-        promise.catch(e => console.log(e.message));
-        promise.catch(e => $("#dupMessage").html(e.message + "Click "+"<a href = 'indexSignUpPage.html'>here</a> "+"to try again"));
-        $("#dupMessage").html("Click "+"<a href = 'index.html'>here</a> "+"here to log in");
-        setLocalStorage();
-         });
+     
+
       // to log out of user account
       $("#btnLogOut").on("click",e =>{
           firebase.auth().signOut();
           localStorage.clear();
           $("#logInEmail").html("");
+
+
       });
       //checks to see if the user is logged in or out
       firebase.auth().onAuthStateChanged(firebaseUser =>{
           if(firebaseUser){
-           console.log(firebaseUser);
+           
+          // var displayName = firebaseUser.displayName;
+          // var email = firebaseUser.email;
+          // var emailVerified = firebaseUser.emailVerified;
+          // var photoURL = firebaseUser.photoURL;
+          // var isAnonymous = firebaseUser.isAnonymous;
+          // var uid = firebaseUser.uid;
+          // var providerData = firebaseUser.providerData;
+          //console.log(firebaseUser);
+          //console.log(firebaseUser.uid);
            $("#txtEmail").addClass("hide");
             $("#userEmail").removeClass("hide");
             $("#txtPassword").addClass("hide");
@@ -160,10 +147,46 @@ function signUpEmail(){
             $("#logInEmail").addClass("hide");
           }
       });
-       $("#logInEmail").html("Signed is As: " + localStorage.getItem("email"));
-  }
+      
+  };
 signUpEmail();
 
+ function signUp(){
+          $("#btnSignUp").on("click", function(){
+            // TODO CHECK FOR REAL EMAIL
+            event.preventDefault();
+            alert("I was clicked");
+             email = $("#email").val().trim();
+             pass = $("#pwd").val().trim();
+             usrName = $("#usr").val().trim();
+             auth = firebase.auth();
+            console.log(email);
+            console.log(pass);
+            console.log(usrName);
+          
+           firebase.auth().createUserWithEmailAndPassword(email,pass)
+           .then(function(user){
+            database.ref("/user").push({
+              userId: user.uid,
+              userName: usrName,
+              userEmail:user.email
+
+
+            });
+            alert(user.uid);
+             $("#dupMessage").html("Click "+"<a href = 'index.html'>here</a> "+"here to log in");
+            //var promise = auth.createUserWithEmailAndPassword(email,pass);
+          }).catch(function(error){                      
+            promise.catch(firebaseUser => console.log(firebaseUser.message));
+            promise.catch(firebaseUser => $("#dupMessage").html(firebaseUser.message + "Click "+"<a href = 'indexSignUpPage.html'>here</a> "+"to try again"));
+          
+            $("#logInEmail").html("Signed is As: " + localStorage.getItem("email"));
+        });
+        });
+
+      }
+      signUp();
+  
 
 }); // document on ready
 
