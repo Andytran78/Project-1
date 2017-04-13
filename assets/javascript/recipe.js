@@ -1,12 +1,10 @@
 
 $( document ).ready(function(){
 
-
-
         //user input function
-        $("#addIngredients").on("click", function() {
+        $("#ingredientSearch").on("click", function() {
             event.preventDefault();
-            var userInput = $("#ingredients-input").val().trim();
+            var userInput = myArray.toString();
             console.log(userInput);
             addIngredients(userInput);
             //return false;
@@ -27,26 +25,26 @@ console.log(userInput);
                             console.log(recipe);
 
                             var recipesDiv = $('<div class="item">');
-                            
+
                             var label = recipe.label;
                             var header = $("<h1>").text(label)
                             var image = $("<img>");
                             image.attr("src", recipe.image);
 
-                            
+
                             recipesDiv.append(image);
-                            
+
                             recipesDiv.prepend(header);
 
-                        
-                            
-                            
-                            $("#ingredientsAddHere").prepend(recipesDiv);
+
+
+
+                            $("#recipeList").prepend(recipesDiv);
 
                         }
 
-                });               
-            // });           
+                });
+            // });
     }
 });
 

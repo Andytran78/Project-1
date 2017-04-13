@@ -246,6 +246,3 @@ function displayDirections(origin) {
       });
     }
 
-function clearMarkers() {
-  markers = [""]
-}
