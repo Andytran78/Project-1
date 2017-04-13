@@ -99,3 +99,6 @@ p {
   margin-top: 6px;
   background-color: #CFE2F3;
 }
+.meals:hover {
+ color: red;
+}
