@@ -120,7 +120,7 @@ $(document).on("click", ".meals", removeIngredient);
           $("#profileName").append("<div>" + sv[uid].userName+ "<div>"); 
           $("#profileEmail").append("<div>" + sv[uid].userEmail + "</div>");
           $("#profileFavFood").append("<div>" + sv[uid].favFood+ "</div>");
-          $("#profileFavProgrammer").append("<div" + sv[uid].favProgrammer + "</div>");
+          $("#profileFavProgrammer").append("<div>" + sv[uid].favProgrammer + "</div>");
           });
 
            $("#txtEmail").addClass("hide");
@@ -153,15 +153,13 @@ signUpEmail();
              pass = $("#pwd").val().trim();
              usrName = $("#usr").val().trim();
              favFood = $("#favFood").val().trim();
-             favProgrammer = $("favProgrammer").val().trim();
+             favProgrammer = $("#favProgrammer").val().trim();
              auth = firebase.auth();
-<<<<<<< HEAD
-=======
+
             console.log(email);
             console.log(pass);
             console.log(usrName);
 
->>>>>>> 26c7fec2dacddf49e955fe8517a43f0749ad2103
            firebase.auth().createUserWithEmailAndPassword(email,pass)
            .then(function(user){
             database.ref().child(user.uid).set({
