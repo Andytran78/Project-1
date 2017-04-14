@@ -121,7 +121,7 @@ $(document).on("click", ".meals", removeIngredient);
           $("#profileEmail").append("<div>" + sv[uid].userEmail + "</div>");
           
           $("#profileFavFood").append("<div>" + sv[uid].favFood+ "</div>");
-          $("#profileFavProgrammer").append("<div" + sv[uid].favProgrammer + "</div>");
+          $("#profileFavProgrammer").append("<div>" + sv[uid].favProgrammer + "</div>");
           });
 
            $("#txtEmail").addClass("hide");
