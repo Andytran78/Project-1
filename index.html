@@ -26,7 +26,7 @@
 		<nav class="navbar navbar-inverse">
 				 <div class="container-fluid">
 				   <div class="navbar-header">
-				     <a class="navbar-brand" href="#">WebSiteName</a>
+				     <a class="navbar-brand" href="#">><span class = "glyphicon glyphicon-grain"></span>CluelessChef</a>
 				   </div>
 				   <ul class="nav navbar-nav">
 				     <li class="active"><a href="#">Home</a></li>
@@ -52,17 +52,18 @@
 </div>
 	<div class = "jumbotron text-center">
 		<div>
-			<h1>Title</h1>
-			<h2>Some Text</h2>
-			<h3>Sample Words</h3>
+			<h1>Clueless Chef</h1>
+			<h2>Getting it cooking when you have no idea where to start</h2>
 		</div>
 	</div> <!-- end of jumbrotron -->
 	<div class = "row">
 		<div class = "col-md-6">
 				<div class="panel panel-default">
 
-				<h3>Add Your Random Items</h3>
 				<div class="panel-body">
+
+				<h3>What are you working with?</h3>
+				<h5>Enter the ingredients you already have on hand</h5>
 					<form>
 						<input class="form-control" type="text" placeholder="add an ingredient" id = "newIngredientTxt" size="34">
 					</form>
@@ -76,19 +77,22 @@
 				</div>
 
 				<div id = "ingredientList"></div>
-				<div><p> Click here to search for Savory Recipes <button id="ingredientSearch" class="btn btn-default"><span class = "glyphicon glyphicon-search"></span> Search</button></p></div>
+				<div><p> Click here to search for recipes containing your ingedients:  <button id="ingredientSearch" class="btn btn-default"><span class = "glyphicon glyphicon-search"></span> Search</button></p></div>
 				</div>
 			</div> <!-- end of panel -->
 		</div>
 		<div class = "col-md-6">
 				<div class="panel panel-default">
-						<h3>Map of not foodlion - KO</h3>
 						<div class="panel-body">
+
+						<h3>Missing an ingredient? Rather do takeout?</h3>
+						<h5>Search for your nearest grcoery store or restaurant depending</h5>
+
 							<div class="form-group headerStyle">
 							    <label for="zoom-to-area-text">Where are you starting from?</label>
 							    	<input type="text" class="form-control" id="zoom-to-area-text">
 								<button class="btn btn-default" type="button" id="zoom-to-area">Submit</button>
-              </div>
+              				</div>
 
 
 							<div>
@@ -126,13 +130,13 @@
 	<div class ="row">
 		<div class = "col-md-6">
 				<div class="panel panel-default">
-					<h3>search of the recipes api - AT</h3>
+					<h3>Here are your recipe options!</h3>
 					<div id="recipeList"></div>
 				</div> <!-- end of panel -->
 		</div>
 		<div class = "col-md-6">
 			<div class="panel panel-default">
-				<h3>Neighborhood Resturants - JS</h3>
+				<h3>Here's where you're going!</h3>
 				<div id="map"></div>
 			</div> <!-- end of panel -->
 		</div>
