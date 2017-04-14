@@ -10,17 +10,18 @@ var config = {
 
 var database = firebase.database();
 var usr = "";
+var auth = firebase.auth();
+var  uid = "";
 
 $( document ).ready(function(){
 
-// database.ref(/firebaseUser).on("value", function(snapshot) {
+// database.ref().on("value", function(snapshot) {
 //   var sv = snapshot.val();
-//   console.log(sv.usrName);
-//   $("#profileName").append("<div>" + snapshot.val().usrName+ "<div>");
-// },
-// function(errorObject) {
-//       console.log("Errors handled: " + errorObject.code);
-//     });
+//   console.log(sv["VST5EAIRteXRcQ6G5G5BrcHNeUm1"]);
+//   //$("#profileName").append("<div>" + snapshot.val().usrName+ "<div>");
+// });
+
+ 
 
 var myArray = [];
 		function ingredientsAdd(){
@@ -67,27 +68,17 @@ function removeIngredient(){
         a.text(" - "+ myArray[i]);
         a.addClass("meals");
         $("#ingredientList").append(a);
-
-
-
   };
 };
 
 $(document).on("click", ".meals", removeIngredient);
 
-
-  
-  var auth = firebase.auth();
-
-function signUpEmail(){ 
-
-
+  function signUpEmail(){ 
+ 
   function clearlogIn(){
     $("#txtEmail").val("");
     $("#txtPassword").val("");
-  }
-
-  
+  } 
     function setLocalStorage(){
        $("#logInEmail").html();
           $("#logInEmail").html("Signed is As: " + email);
@@ -97,23 +88,18 @@ function signUpEmail(){
     }
     
     // to log in as a existng usr con
-    $("#btnLogin").on("click", e=> {
+    $("#btnLogin").on("click", firebaseUser => {
          event.preventDefault();
          email = $("#txtEmail").val().trim();
          pass = $("#txtPassword").val().trim();
          setLocalStorage();
          var auth = firebase.auth();
-        clearlogIn();
-
+        clearlogIn();        
         var promise = auth.signInWithEmailAndPassword(email,pass);
-        
-        promise.catch(e => console.log(e.message));
+        promise.catch(firebaseUser => console.log(e.message));
 
      });
      
-      // to sign up for an account
-     
-
       // to log out of user account
       $("#btnLogOut").on("click",e =>{
           firebase.auth().signOut();
@@ -125,16 +111,14 @@ function signUpEmail(){
       //checks to see if the user is logged in or out
       firebase.auth().onAuthStateChanged(firebaseUser =>{
           if(firebaseUser){
-           
-          // var displayName = firebaseUser.displayName;
-          // var email = firebaseUser.email;
-          // var emailVerified = firebaseUser.emailVerified;
-          // var photoURL = firebaseUser.photoURL;
-          // var isAnonymous = firebaseUser.isAnonymous;
-          // var uid = firebaseUser.uid;
-          // var providerData = firebaseUser.providerData;
-          //console.log(firebaseUser);
-          //console.log(firebaseUser.uid);
+           uid = firebaseUser.uid;
+          
+          database.ref().on("value", function(snapshot) {
+          var sv = snapshot.val();
+          console.log(sv[uid].userName);
+          $("#profileName").append("<div>" + sv[uid].userName+ "<div>" + "<div>" + sv[uid].userEmail + "</div");
+          
+          });
            $("#txtEmail").addClass("hide");
             $("#userEmail").removeClass("hide");
             $("#txtPassword").addClass("hide");
@@ -150,15 +134,15 @@ function signUpEmail(){
             $("#logInEmail").addClass("hide");
           }
       });
-      
-  };
+     
+      };
 signUpEmail();
 
  function signUp(){
           $("#btnSignUp").on("click", function(){
             // TODO CHECK FOR REAL EMAIL
             event.preventDefault();
-            alert("I was clicked");
+            
              email = $("#email").val().trim();
              pass = $("#pwd").val().trim();
              usrName = $("#usr").val().trim();
@@ -169,28 +153,26 @@ signUpEmail();
           
            firebase.auth().createUserWithEmailAndPassword(email,pass)
            .then(function(user){
-            database.ref("/user").push({
+            database.ref().child(user.uid).set({
               userId: user.uid,
               userName: usrName,
               userEmail:user.email
-
-
             });
-            alert(user.uid);
-             $("#dupMessage").html("Click "+"<a href = 'index.html'>here</a> "+"here to log in");
+             $("#dupMessage").html("Click "+"<a href = 'index.html'>here</a> "+"to return to the main page");
             //var promise = auth.createUserWithEmailAndPassword(email,pass);
           }).catch(function(error){                      
             promise.catch(firebaseUser => console.log(firebaseUser.message));
             promise.catch(firebaseUser => $("#dupMessage").html(firebaseUser.message + "Click "+"<a href = 'indexSignUpPage.html'>here</a> "+"to try again"));
-          
-            $("#logInEmail").html("Signed is As: " + localStorage.getItem("email"));
+                     
         });
+           $("#logInEmail").html("Signed is As: " + localStorage.getItem("email"));
         });
 
       }
       signUp();
   
 
-}); // do
+}); // document on ready
+
 
 
