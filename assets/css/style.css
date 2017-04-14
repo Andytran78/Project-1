@@ -1,7 +1,6 @@
 body {
   background-image: url("background.jpg");
-  background-repeat: no-repeat;
-  background-size: 1800px 1300px;
+  background-size: 100%, 5000px;
 }
 
 h1 {
@@ -14,14 +13,21 @@ h2 {
 
 h3 {
   font-family: 'Reem Kufi', sans-serif;
-  text-align: center;
   font-weight: bold;
+  text-align: center;
 }
 
 h4 {
   font-family: 'Reem Kufi', sans-serif;
   font-size: 14px;
   font-weight: bold;
+}
+
+h5 {
+  font-family: 'Reem Kufi', sans-serif;
+  font-size: 14px;
+  font-style: italic;
+  text-align: center;
 }
 
 .jumbotron {
@@ -67,6 +73,7 @@ p {
 
 .navbar {
   font-family: 'Reem Kufi', sans-serif;
+  height: 51px;
 }
 
 #txtEmail{
@@ -92,13 +99,20 @@ p {
 .meals {
   margin: 3px;
   font-family: 'Indie Flower', cursive;
-  font-size: 20px;
+  font-size: 22px;
 }
 
 #ingredientPanel {
   margin-top: 6px;
-  background-color: #CFE2F3;
+  background-image: url("background2.jpg");
+  background-repeat: no-repeat;
 }
+
+.item {
+  margin: 5px;
+  text-align: center;
+}
+  
 .meals:hover {
  color: red;
 }
