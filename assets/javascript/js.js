@@ -75,23 +75,11 @@ $(document).on("click", ".meals", removeIngredient);
     $("#txtPassword").val("");
   } 
 
-
-
-  
-    function setLocalStorage(){
-       $("#logInEmail").html();
-          $("#logInEmail").html("Signed is As: " + email);
-          localStorage.clear();
-          localStorage.setItem("email",email);
-
-    }
-
     // to log in as a existng usr con
     $("#btnLogin").on("click", firebaseUser => {
          event.preventDefault();
          email = $("#txtEmail").val().trim();
          pass = $("#txtPassword").val().trim();
-         setLocalStorage();
          var auth = firebase.auth();
         clearlogIn();        
         var promise = auth.signInWithEmailAndPassword(email,pass);
@@ -103,10 +91,7 @@ $(document).on("click", ".meals", removeIngredient);
    // to log out of user account
       $("#btnLogOut").on("click",e =>{
           firebase.auth().signOut();
-          localStorage.clear();
           $("#logInEmail").html("");
-
-
       });
       //checks to see if the user is logged in or out
       firebase.auth().onAuthStateChanged(firebaseUser =>{
@@ -123,6 +108,7 @@ $(document).on("click", ".meals", removeIngredient);
           $("#profileFavFood").append("<div>" + sv[uid].favFood+ "</div>");
 
           $("#profileFavProgrammer").append("<div>" + sv[uid].favProgrammer + "</div>");
+          $("#logInEmail").html("<div>" + "You are signed in as " + sv[uid].userEmail + "</div>");
           });
 
            $("#txtEmail").addClass("hide");
@@ -179,7 +165,7 @@ signUpEmail();
             promise.catch(firebaseUser => $("#dupMessage").html(firebaseUser.message + "Click "+"<a href = 'indexSignUpPage.html'>here</a> "+"to try again"));
 
         });
-           $("#logInEmail").html("Signed is As: " + localStorage.getItem("email"));
+          
         });
 
       }
