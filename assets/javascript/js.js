@@ -120,6 +120,8 @@ $(document).on("click", ".meals", removeIngredient);
           $("#profileName").append("<div>" + sv[uid].userName+ "<div>"); 
           $("#profileEmail").append("<div>" + sv[uid].userEmail + "</div>");
           $("#profileFavFood").append("<div>" + sv[uid].favFood+ "</div>");
+
+          
           $("#profileFavProgrammer").append("<div>" + sv[uid].favProgrammer + "</div>");
           });
 
