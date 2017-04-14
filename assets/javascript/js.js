@@ -117,8 +117,10 @@ $(document).on("click", ".meals", removeIngredient);
           database.ref().on("value", function(snapshot) {
           var sv = snapshot.val();
           console.log(sv[uid].userName);
-          $("#profileName").append("<div>" + sv[uid].userName+ "<div>" + "<div>" + sv[uid].userEmail + "</div");
-          
+          $("#profileName").append("<div>" + sv[uid].userName+ "<div>"); 
+          $("#profileEmail").append("<div>" + sv[uid].userEmail + "</div>");
+          $("#profileFavFood").append("<div>" + sv[uid].favFood+ "</div>");
+          $("#profileFavProgrammer").append("<div" + sv[uid].favProgrammer + "</div>");
           });
 
            $("#txtEmail").addClass("hide");
@@ -150,17 +152,25 @@ signUpEmail();
              email = $("#email").val().trim();
              pass = $("#pwd").val().trim();
              usrName = $("#usr").val().trim();
+             favFood = $("#favFood").val().trim();
+             favProgrammer = $("favProgrammer").val().trim();
              auth = firebase.auth();
+<<<<<<< HEAD
+=======
             console.log(email);
             console.log(pass);
             console.log(usrName);
 
+>>>>>>> 26c7fec2dacddf49e955fe8517a43f0749ad2103
            firebase.auth().createUserWithEmailAndPassword(email,pass)
            .then(function(user){
             database.ref().child(user.uid).set({
               userId: user.uid,
               userName: usrName,
-              userEmail:user.email
+              userEmail:user.email,
+              favFood:favFood,
+              favProgrammer:favProgrammer
+
             });
              $("#dupMessage").html("Click "+"<a href = 'index.html'>here</a> "+"to return to the main page");
             //var promise = auth.createUserWithEmailAndPassword(email,pass);
