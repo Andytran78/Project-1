@@ -108,7 +108,9 @@ $(document).on("click", ".meals", removeIngredient);
           $("#profileFavFood").append("<div>" + sv[uid].favFood+ "</div>");
 
           $("#profileFavProgrammer").append("<div>" + sv[uid].favProgrammer + "</div>");
-          $("#logInEmail").html("<div>" + "You are signed in as " + sv[uid].userEmail + "</div>");
+
+           $("#logInEmail").html("You are signed in as " + sv[uid].userEmail);
+
           });
 
            $("#txtEmail").addClass("hide");
@@ -165,7 +167,9 @@ signUpEmail();
             promise.catch(firebaseUser => $("#dupMessage").html(firebaseUser.message + "Click "+"<a href = 'indexSignUpPage.html'>here</a> "+"to try again"));
 
         });
-          
+
+           
+
         });
 
       }
