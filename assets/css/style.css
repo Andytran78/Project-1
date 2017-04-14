@@ -13,14 +13,21 @@ h2 {
 
 h3 {
   font-family: 'Reem Kufi', sans-serif;
-  text-align: center;
   font-weight: bold;
+  text-align: center;
 }
 
 h4 {
   font-family: 'Reem Kufi', sans-serif;
   font-size: 14px;
   font-weight: bold;
+}
+
+h5 {
+  font-family: 'Reem Kufi', sans-serif;
+  font-size: 14px;
+  font-style: italic;
+  text-align: center;
 }
 
 .jumbotron {
@@ -66,6 +73,7 @@ p {
 
 .navbar {
   font-family: 'Reem Kufi', sans-serif;
+  height: 51px;
 }
 
 #txtEmail{
@@ -103,6 +111,7 @@ p {
 .item {
   margin: 5px;
   text-align: center;
+}
   
 .meals:hover {
  color: red;
