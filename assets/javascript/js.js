@@ -119,6 +119,7 @@ $(document).on("click", ".meals", removeIngredient);
           console.log(sv[uid].userName);
           $("#profileName").append("<div>" + sv[uid].userName+ "<div>"); 
           $("#profileEmail").append("<div>" + sv[uid].userEmail + "</div>");
+          
           $("#profileFavFood").append("<div>" + sv[uid].favFood+ "</div>");
           $("#profileFavProgrammer").append("<div" + sv[uid].favProgrammer + "</div>");
           });
