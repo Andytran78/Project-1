@@ -29,7 +29,7 @@ function zoomToArea() {
   var geocoder = new google.maps.Geocoder();
   var address = document.getElementById("zoom-to-area-text").value;
   if (address === "") {
-    console.log("You must enter an area, or address.")
+    $("#errorMessage").html("You must enter an area, or address.");
   } else {
     geocoder.geocode(
       { address: address,
@@ -40,9 +40,10 @@ function zoomToArea() {
           map.setZoom(17);
           $("#address-field").text(results[0].formatted_address)
         } else {
-         console.log("We cold not find that location.  Try entering a more specific place!");
+         $("#errorMessage").html("We cold not find that location.  Try entering a more specific place!");
         }
       });
+      $("#errorMessage").text("");
   }
 }
 
@@ -65,6 +66,7 @@ function grocerySearch() {
       createMarkersForPlaces(results);
     }
   });
+  $("#errorMessage").text("");
 }
 
 function restaurantSearch() {
@@ -80,6 +82,7 @@ function restaurantSearch() {
       createMarkersForPlaces(results);
     }
   });
+  $("#errorMessage").text("");
 }
 
 function createMarkersForPlaces(places) {
@@ -191,7 +194,7 @@ function searchWithinTime() {
       var distanceMatrixService = new google.maps.DistanceMatrixService;
       var address = document.getElementById("zoom-to-area-text").value;
         if (address === "") {
-          console.log("you must enter an address.");
+          $("#errorMessage").html("<strong>*You will need to enter a location and choose what you are looking for above in order to find your search area.</strong>")
         } else {
           hideMarkers(markers);
           var origins = [];
@@ -207,7 +210,7 @@ function searchWithinTime() {
             unitSystem: google.maps.UnitSystem.IMPERIAL,
           }, function(response, status) {
             if (status !== google.maps.DistanceMatrixStatus.OK) {
-              window.alert("Error was: " + status);
+             $("#errorMessage").html("<strong>*You will need to enter a location and choose what you are looking for above in order to find your search area.</strong>");
             } else {
               displayMarkersWithinTime(response);
               }
