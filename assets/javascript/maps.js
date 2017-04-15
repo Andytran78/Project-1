@@ -129,10 +129,10 @@ function getPlacesDetails(marker, infowindow) {
           infowindow.marker = marker;
           var innerHTML = "<div>";
           if (place.name) {
-            innerHTML += "<strong>" + place.name + "</strong>";
+            innerHTML += "<h2>" + place.name + "</h2>";
           }
           if (place.formatted_address) {
-            innerHTML += "<br>" + place.formatted_address;
+            innerHTML += place.formatted_address;
           }
           if (place.formatted_phone_number) {
             innerHTML += "<br>" + place.formatted_phone_number;
@@ -150,7 +150,7 @@ function getPlacesDetails(marker, infowindow) {
             innerHTML += "<h6><strong>Is this place currently open: </strong>" + place.opening_hours.open_now + "</h6>";
           }
           if (place.opening_hours) {
-            innerHTML += "<strong>Hours:</strong><br>" +
+            innerHTML += "<h6><strong>Hours:</strong></h6>" +
               place.opening_hours.weekday_text[0] + "<br>" +
               place.opening_hours.weekday_text[1] + "<br>" +
               place.opening_hours.weekday_text[2] + "<br>" +
