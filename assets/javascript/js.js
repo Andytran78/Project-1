@@ -68,12 +68,12 @@ function removeIngredient(){
 $(document).on("click", ".meals", removeIngredient);
 
 
-  function signUpEmail(){ 
- 
+  function signUpEmail(){
+
   function clearlogIn(){
     $("#txtEmail").val("");
     $("#txtPassword").val("");
-  } 
+  }
 
     // to log in as a existng usr con
     $("#btnLogin").on("click", firebaseUser => {
@@ -81,13 +81,13 @@ $(document).on("click", ".meals", removeIngredient);
          email = $("#txtEmail").val().trim();
          pass = $("#txtPassword").val().trim();
          var auth = firebase.auth();
-        clearlogIn();        
+        clearlogIn();
         var promise = auth.signInWithEmailAndPassword(email,pass);
 
         promise.catch(firebaseUser => console.log(e.message));
 
      });
-    
+
    // to log out of user account
       $("#btnLogOut").on("click",e =>{
           firebase.auth().signOut();
@@ -98,13 +98,13 @@ $(document).on("click", ".meals", removeIngredient);
           if(firebaseUser){
 
            uid = firebaseUser.uid;
-          
+
           database.ref().on("value", function(snapshot) {
           var sv = snapshot.val();
           console.log(sv[uid].userName);
-          $("#profileName").append("<div>" + sv[uid].userName+ "<div>"); 
+          $("#profileName").append("<div>" + sv[uid].userName+ "<div>");
           $("#profileEmail").append("<div>" + sv[uid].userEmail + "</div>");
-          
+
           $("#profileFavFood").append("<div>" + sv[uid].favFood+ "</div>");
 
           $("#profileFavProgrammer").append("<div>" + sv[uid].favProgrammer + "</div>");
@@ -132,7 +132,7 @@ $(document).on("click", ".meals", removeIngredient);
           }
       });
 
-     
+
       };
 
 signUpEmail();
@@ -141,7 +141,7 @@ signUpEmail();
           $("#btnSignUp").on("click", function(){
             // TODO CHECK FOR REAL EMAIL
             event.preventDefault();
-            
+
              email = $("#email").val().trim();
              pass = $("#pwd").val().trim();
              usrName = $("#usr").val().trim();
@@ -152,7 +152,7 @@ signUpEmail();
             console.log(email);
             console.log(pass);
             console.log(usrName);
-            
+
            firebase.auth().createUserWithEmailAndPassword(email,pass)
            .then(function(user){
             database.ref().child(user.uid).set({
@@ -203,7 +203,7 @@ function addIngredients(userInput) {
                 var header = $("<h1>").text(label)
                 var image = $("<img>");
                 image.attr("src", recipe.image);
-                var url = $("<a>").html("<p><strong>Click Here for Full Recipe!!!</strong></p>");
+                var url = $("<a target='_blank'>").html("<p><strong>Click Here for Full Recipe</strong></p>");
                 url.attr("href", recipe.url);
 
                 recipesDiv.append(ingredientParagraph);

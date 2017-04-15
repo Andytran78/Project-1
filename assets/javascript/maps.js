@@ -97,6 +97,7 @@ function createMarkersForPlaces(places) {
         icon: icon,
         title: place.name,
         position: place.geometry.location,
+        animation: google.maps.Animation.DROP,
         id: place.place_id
       });
       var placeInfoWindow = new google.maps.InfoWindow();
@@ -123,6 +124,7 @@ function getPlacesDetails(marker, infowindow) {
       service.getDetails({
         placeId: marker.id
       }, function (place, status) {
+        console.log(place);
         if (status === google.maps.places.PlacesServiceStatus.OK) {
           infowindow.marker = marker;
           var innerHTML = "<div>";
@@ -135,8 +137,20 @@ function getPlacesDetails(marker, infowindow) {
           if (place.formatted_phone_number) {
             innerHTML += "<br>" + place.formatted_phone_number;
           }
+          if (place.price_level) {
+            innerHTML += "<h6><strong>Price Level: </strong>" + place.price_level + "/5</h6>"
+          }
+          if (place.rating) {
+            innerHTML += "<h6><strong>Google Rating: </strong>" + place.rating + "/5</h6>"
+          }
+          if (place.reviews) {
+            innerHTML += "<strong>Best Review: </strong>" + place.reviews[0].text;
+          }
+          if(place.opening_hours.open_now) {
+            innerHTML += "<h6><strong>Is this place currently open: </strong>" + place.opening_hours.open_now + "</h6>";
+          }
           if (place.opening_hours) {
-            innerHTML += "<br><br><strong>Hours:</strong><br>" +
+            innerHTML += "<strong>Hours:</strong><br>" +
               place.opening_hours.weekday_text[0] + "<br>" +
               place.opening_hours.weekday_text[1] + "<br>" +
               place.opening_hours.weekday_text[2] + "<br>" +
@@ -147,13 +161,16 @@ function getPlacesDetails(marker, infowindow) {
           }
           if (place.photos) {
             innerHTML += '<br><br><img src="' + place.photos[1].getUrl(
-                {maxHeight: 100, maxWidth: 200}) + '">';
+                {maxHeight: 150, maxWidth: 250}) + '">';
+          }
+          if (place.website) {
+            innerHTML += "<br><a href='" + place.website + "' target='_blank'><strong>Click here to view their website</strong></a>"
           }
           innerHTML += "</div>";
           infowindow.setContent(innerHTML);
           infowindow.open(map, marker);
           infowindow.addListener("closeclick", function() {
-            infowindow.marker = null;
+          infowindow.marker = null;
           });
 
         }
@@ -241,7 +258,7 @@ function displayDirections(origin) {
               }
             });
           } else {
-            window.alert("Direction request failed due to " + status);
+            console.log("Direction request failed due to " + status);
           }
       });
     }
