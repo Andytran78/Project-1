@@ -112,7 +112,7 @@ p {
   margin: 5px;
   text-align: center;
 }
-  
+
 .meals:hover {
  color: red;
 }
@@ -120,4 +120,7 @@ p {
   color: yellow;
   padding-bottom:  0;
 
+}
+#errorMessage {
+  color: red;
 }
