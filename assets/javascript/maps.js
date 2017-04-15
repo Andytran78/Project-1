@@ -13,6 +13,7 @@ function initMap() {
     var searchBox = new google.maps.places.SearchBox(
       document.getElementById("buttonSearch"));
     searchBox.setBounds(map.getBounds());
+
     document.getElementById("zoom-to-area").addEventListener("click", function() {
         zoomToArea();
     });
@@ -21,6 +22,7 @@ function initMap() {
     });
     document.getElementById("grocery").addEventListener("click", grocerySearch);
     document.getElementById("restaurant").addEventListener("click", restaurantSearch);
+
 }
 
 function zoomToArea() {
@@ -81,6 +83,8 @@ function restaurantSearch() {
 }
 
 function createMarkersForPlaces(places) {
+    var icon = makeMarkerIcon("0091ff");
+    var highlightedIcon = makeMarkerIcon("FFFF24");
     console.log(markers);
     var bounds = new google.maps.LatLngBounds();
     for (var i = 0; i < 10; i++) {
@@ -99,6 +103,12 @@ function createMarkersForPlaces(places) {
         position: place.geometry.location,
         animation: google.maps.Animation.DROP,
         id: place.place_id
+      });
+      marker.addListener("mouseover", function() {
+        this.setIcon(highlightedIcon);
+      });
+      marker.addListener("mouseout", function() {
+        this.setIcon(icon);
       });
       var placeInfoWindow = new google.maps.InfoWindow();
       marker.addListener("click",function() {
@@ -263,3 +273,13 @@ function displayDirections(origin) {
       });
     }
 
+ function makeMarkerIcon(markerColor) {
+      var markerImage = new google.maps.MarkerImage(
+        "http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|"+ markerColor +
+          "|40|_|%E2%80%A2",
+        new google.maps.Size(21,34),
+        new google.maps.Point(0,0),
+        new google.maps.Point(10,34),
+        new google.maps.Size(21,34));
+      return markerImage;
+    }
